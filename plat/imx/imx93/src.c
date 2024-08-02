@@ -141,7 +141,7 @@ int imx_src_handler(uint32_t smc_fid, u_register_t x1, u_register_t x2,
 		mmio_setbits_32(REG_SRC_GLOBAL_SRMR1, BIT(8) | BIT(24));
 		mmio_setbits_32(REG_SRC_GLOBAL_SRMR5, BIT(8));
 		mmio_clrbits_32(REG_SRC_GLOBAL_SRMASK, BIT(1) | BIT(0));
-
+		mmio_setbits_32(REG_SRC_GLOBAL_SRMASK, BIT(6));
 		mmio_setbits_32(BLK_CTL_S_AONMIX_BASE + M33_CFG_OFF, M33_CPU_WAIT_MASK);
 		mmio_clrbits_32(REG_SRC_GLOBAL_CM_QUIESCE, BIT(0));
 		wdog1_cpu(0);
